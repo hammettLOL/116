@@ -29,7 +29,7 @@
         android:layout_height="41dp"
         android:background="@color/colorLetter"
         android:ems="10"
-
+        android:padding="10dp"
         android:hint="Código de verificación"
         android:inputType="textPersonName"
         android:layout_marginTop="24dp"
