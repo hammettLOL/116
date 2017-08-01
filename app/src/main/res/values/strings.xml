@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">116</string>
+    <string name="hint_nombre">Tu nombre</string>
+    <string name="hint_telefono">Tú número de teléfono</string>
+    <string name="ingresa_codigo_text">Ingresa el código de verificación que enviamos a tu celular</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>
