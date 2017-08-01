@@ -4,7 +4,7 @@
     <string name="hint_telefono">Tú número de teléfono</string>
     <string name="ingresa_codigo_text">Ingresa el código de verificación que enviamos a tu celular</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="title_home">Alerta</string>
-    <string name="title_dashboard">Contactos</string>
-    <string name="title_notifications">Confoguración</string>
+    <string name="title_alert">Alerta</string>
+    <string name="title_contacts">Contactos</string>
+    <string name="title_configuration">Configuración</string>
 </resources>
