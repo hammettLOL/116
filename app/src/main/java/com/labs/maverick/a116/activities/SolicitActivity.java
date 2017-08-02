@@ -1,5 +1,6 @@
 package com.labs.maverick.a116.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +21,7 @@ public class SolicitActivity extends AppCompatActivity {
         msolicitnowButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(SolicitActivity.this,SolicitHelpActivity.class));
             }
         });
     }

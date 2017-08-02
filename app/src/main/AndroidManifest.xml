@@ -35,6 +35,9 @@
         <activity
             android:name=".activities.SolicitHelpActivity"
             android:parentActivityName=".activities.SolicitActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activities.ConfirmSolicitActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
