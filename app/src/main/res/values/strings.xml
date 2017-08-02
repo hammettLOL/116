@@ -7,4 +7,5 @@
     <string name="title_alert">Alerta</string>
     <string name="title_contacts">Contactos</string>
     <string name="title_configuration">Configuración</string>
+    <string name="text_login">Para empezar ingresa tu nombre y tu número de teléfono</string>
 </resources>

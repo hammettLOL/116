@@ -1,5 +1,6 @@
 package com.labs.maverick.a116.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -46,6 +47,13 @@ public class MainActivity extends AppCompatActivity {
         memergenciaButton = findViewById(R.id.emergencyButton);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        memergenciaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,SolicitActivity.class));
+            }
+        });
     }
 
 }

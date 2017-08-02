@@ -23,11 +23,19 @@
             android:parentActivityName=".activities.LoginActivity" />
         <activity
             android:name=".activities.AddContactActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/Theme.Design.NoActionBar"></activity>
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".activities.SolicitActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activities.SolicitHelpActivity"
+            android:parentActivityName=".activities.SolicitActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>

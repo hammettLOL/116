@@ -36,8 +36,8 @@
 
     <Button
         android:id="@+id/contactsButton"
-        android:layout_width="307dp"
-        android:layout_height="62dp"
+        android:layout_width="@dimen/button_widht"
+        android:layout_height="@dimen/button_height"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
@@ -51,8 +51,8 @@
 
     <Button
         android:id="@+id/continuarButton"
-        android:layout_width="308dp"
-        android:layout_height="57dp"
+        android:layout_width="@dimen/button_widht"
+        android:layout_height="@dimen/button_height"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
