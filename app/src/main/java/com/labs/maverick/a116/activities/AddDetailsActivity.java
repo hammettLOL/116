@@ -8,19 +8,19 @@ import android.widget.Button;
 
 import com.labs.maverick.a116.R;
 
-public class ConfirmSolicitActivity extends AppCompatActivity {
+public class AddDetailsActivity extends AppCompatActivity {
 
-    private Button madddetailsconfirmButton;
-
+    private Button msolicitadddetailButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_confirm_solicit);
-        madddetailsconfirmButton = findViewById(R.id.adddetailsconfirmButton);
-        madddetailsconfirmButton.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_add_details);
+        msolicitadddetailButton = findViewById(R.id.solicitadddetailButton);
+
+        msolicitadddetailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ConfirmSolicitActivity.this,AddDetailsActivity.class));
+                finish();
             }
         });
     }

@@ -36,13 +36,17 @@
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="23dp"
+        android:layout_width="241dp"
+        android:layout_height="22dp"
         android:textSize="20dp"
         android:textColor="@color/colorLetter"
         android:text="Tu solicitud se ha enviado"
-        tools:layout_editor_absoluteX="90dp"
-        tools:layout_editor_absoluteY="223dp" />
+        android:layout_marginTop="84dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="8dp" />
 
     <Button
         android:id="@+id/adddetailsconfirmButton"
@@ -50,12 +54,13 @@
         android:layout_height="@dimen/button_height"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="120dp"
         android:background="@drawable/button_transparent"
         android:text="Agregar más detalles"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        app:layout_constraintHorizontal_bias="0.494" />
 
     <Button
         android:id="@+id/backtoinitButton"
@@ -63,10 +68,11 @@
         android:layout_height="@dimen/button_height"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/button_transparent"
         android:text="Volver al Inicio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adddetailsconfirmButton" />
+        app:layout_constraintTop_toBottomOf="@+id/adddetailsconfirmButton"
+        app:layout_constraintHorizontal_bias="0.494" />
 </android.support.constraint.ConstraintLayout>
