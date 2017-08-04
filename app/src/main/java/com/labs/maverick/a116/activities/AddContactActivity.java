@@ -1,6 +1,7 @@
 package com.labs.maverick.a116.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,8 +26,5 @@ public class AddContactActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
-
-
 }
