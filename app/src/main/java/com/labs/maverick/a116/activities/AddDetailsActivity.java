@@ -15,15 +15,21 @@ public class AddDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_details);
-        msolicitadddetailButton = findViewById(R.id.solicitadddetailButton);
-
+        bindUI();
         msolicitadddetailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AddDetailsActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
+                goToMain();
             }
         });
+    }
+    public void bindUI(){
+        msolicitadddetailButton = findViewById(R.id.solicitadddetailButton);
+    }
+    public void goToMain(){
+        finish();
+        Intent intent = new Intent(AddDetailsActivity.this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
     }
 }

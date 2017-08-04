@@ -16,12 +16,19 @@ public class SolicitHelpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solicit_help);
-        msolicithelpButton = findViewById(R.id.solicithelpButton);
+        bindUI();
         msolicithelpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SolicitHelpActivity.this,ConfirmSolicitActivity.class));
+                goToConfirmSolicit();
             }
         });
+    }
+
+    public void bindUI(){
+        msolicithelpButton = findViewById(R.id.solicithelpButton);
+    }
+    public void goToConfirmSolicit(){
+        startActivity(new Intent(SolicitHelpActivity.this,ConfirmSolicitActivity.class));
     }
 }

@@ -16,13 +16,20 @@ public class SolicitActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solicit);
-        msolicitnowButton = findViewById(R.id.solicitnowButton);
-
+        bindUI();
         msolicitnowButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SolicitActivity.this,SolicitHelpActivity.class));
+                goToSolicitHelp();
             }
         });
+    }
+
+    public void bindUI(){
+        msolicitnowButton = findViewById(R.id.solicitnowButton);
+    }
+
+    public void goToSolicitHelp(){
+        startActivity(new Intent(SolicitActivity.this,SolicitHelpActivity.class));
     }
 }

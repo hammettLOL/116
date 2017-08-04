@@ -16,12 +16,19 @@ public class ConfirmSolicitActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_solicit);
-        madddetailsconfirmButton = findViewById(R.id.adddetailsconfirmButton);
+       bindUI();
         madddetailsconfirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ConfirmSolicitActivity.this,AddDetailsActivity.class));
+                goToAddDetails();
             }
         });
+    }
+
+    public void bindUI(){
+        madddetailsconfirmButton = findViewById(R.id.adddetailsconfirmButton);
+    }
+    public void goToAddDetails(){
+        startActivity(new Intent(ConfirmSolicitActivity.this,AddDetailsActivity.class));
     }
 }

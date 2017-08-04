@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     Fragment currentFragment;
+    private Button memergenciaButton;
+    private BottomNavigationView navigation;
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -30,12 +32,15 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_home:
                     currentFragment = new MapFragment();
                     changeFragment(currentFragment);
+                    memergenciaButton.setVisibility(View.VISIBLE);
                     return true;
                 case R.id.navigation_dashboard:
                     currentFragment = new ContactsFragment();
                     changeFragment(currentFragment);
+                    memergenciaButton.setVisibility(View.INVISIBLE);
                     return true;
                 case R.id.navigation_notifications:
+                    memergenciaButton.setVisibility(View.INVISIBLE);
                     return true;
             }
 
@@ -50,8 +55,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        bindUI();
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        memergenciaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToSolicit();
+            }
+        });
+
         currentFragment = new MapFragment();
         changeFragment(currentFragment);
     }
@@ -61,5 +73,15 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.fragment_container,fragment).commit();
 
     }
+
+    public void bindUI(){
+        memergenciaButton = findViewById(R.id.emergenciaButton);
+        navigation= findViewById(R.id.navigation);
+    }
+
+    public void goToSolicit(){
+        startActivity(new Intent(MainActivity.this,SolicitActivity.class));
+    }
+
 
 }

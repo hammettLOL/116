@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "154671297157",
+    "firebase_url": "https://app116-1501833262563.firebaseio.com",
+    "project_id": "app116-1501833262563",
+    "storage_bucket": "app116-1501833262563.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154671297157:android:eb3957d6480e1e0a",
+        "android_client_info": {
+          "package_name": "com.labs.maverick.a116"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154671297157-jedh0cjsnj782aau44l56nccni7d84hv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3q772Q5TklUM9De4TI4r2Z-iO6PtzWsw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
