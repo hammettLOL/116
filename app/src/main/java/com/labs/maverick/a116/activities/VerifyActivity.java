@@ -20,7 +20,10 @@ public class VerifyActivity extends AppCompatActivity {
         mconfirmarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(VerifyActivity.this,AddContactActivity.class));
+
+                Intent intent = new Intent(VerifyActivity.this, AddContactActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
         });
 

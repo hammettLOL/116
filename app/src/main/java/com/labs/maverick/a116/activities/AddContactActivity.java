@@ -20,9 +20,13 @@ public class AddContactActivity extends AppCompatActivity {
         mcontinuarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AddContactActivity.this,MainActivity.class));
+                Intent intent = new Intent(AddContactActivity.this, MainActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
         });
 
     }
+
+
 }
