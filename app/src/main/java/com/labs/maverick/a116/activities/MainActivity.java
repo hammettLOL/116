@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,10 +12,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.labs.maverick.a116.R;
+import com.labs.maverick.a116.fragments.ContactsFragment;
+import com.labs.maverick.a116.fragments.MapFragment;
 
 public class MainActivity extends AppCompatActivity {
-    private Button memergenciaButton;
 
+
+    Fragment currentFragment;
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -24,37 +28,38 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    memergenciaButton.setVisibility(View.VISIBLE);
-
+                    currentFragment = new MapFragment();
+                    changeFragment(currentFragment);
                     return true;
                 case R.id.navigation_dashboard:
-                    memergenciaButton.setVisibility(View.INVISIBLE);
-
+                    currentFragment = new ContactsFragment();
+                    changeFragment(currentFragment);
                     return true;
                 case R.id.navigation_notifications:
-                    memergenciaButton.setVisibility(View.INVISIBLE);
-
                     return true;
             }
+
             return false;
         }
+
     };
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        memergenciaButton = findViewById(R.id.emergencyButton);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        currentFragment = new MapFragment();
+        changeFragment(currentFragment);
+    }
 
-        memergenciaButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,SolicitActivity.class));
+    public void changeFragment(Fragment fragment){
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container,fragment).commit();
 
-            }
-        });
     }
 
 }
