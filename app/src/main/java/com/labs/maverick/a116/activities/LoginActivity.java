@@ -11,24 +11,30 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.labs.maverick.a116.R;
+import com.labs.maverick.a116.model.User;
+import com.orm.SugarRecord;
 
 public class LoginActivity extends AppCompatActivity {
     private Button mloginButton;
     private EditText mnameloginEditText;
     private EditText nphoneloginEditText;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        user = new User();
         bindUI();
         mloginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = mnameloginEditText.getText().toString();
-                String phone = nphoneloginEditText.getText().toString();
+                String name = mnameloginEditText.getText().toString().trim();
+                String phone = nphoneloginEditText.getText().toString().trim();
                 if(login(name,phone)) {
+                    user.setName(name);
+                    user.setPhone(phone);
+                    user.save();
                     goToVerify();
                 }
             }
@@ -60,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private boolean isValidPhone(String phone){
-        return !TextUtils.isEmpty(phone) && Patterns.PHONE.matcher(phone).matches();
+        return !TextUtils.isEmpty(phone) && Patterns.PHONE.matcher(phone).matches() && phone.length() == 9;
     }
 
     private void goToVerify(){
