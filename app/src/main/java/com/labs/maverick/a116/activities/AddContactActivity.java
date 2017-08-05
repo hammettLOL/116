@@ -7,11 +7,17 @@ import android.net.Uri;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.labs.maverick.a116.R;
+import com.labs.maverick.a116.adapters.ContactsAdapter;
+import com.labs.maverick.a116.model.Contact;
+
+import java.util.List;
 
 public class AddContactActivity extends AppCompatActivity {
 
@@ -21,11 +27,16 @@ public class AddContactActivity extends AppCompatActivity {
     private Uri uriContact;
     private String contactID;     // contacts unique ID
     private static final String TAG = AddContactActivity.class.getSimpleName();
+    private RecyclerView mcontactRecycleView;
+    private ContactsAdapter contactsAdapter;
+    private List<Contact> contactList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_contact);
         bindUI();
+        contactsAdapter = new ContactsAdapter();
+        showRecycleView();
         mcontinuarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,19 +61,46 @@ public class AddContactActivity extends AppCompatActivity {
            String name = retrieveContactName();
            String phone = retrieveContactNumber();
 
-           System.out.println(name + "" +phone);
+           Contact contact = new Contact(name,phone);
+           contact.save();
 
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+            updateData();
+
+
+    }
+
+    private void showRecycleView(){
+        if(Contact.listAll(Contact.class) != null) {
+
+            contactsAdapter.setContactList(Contact.listAll(Contact.class));
+            mcontactRecycleView.setAdapter(contactsAdapter);
+            mcontactRecycleView.setLayoutManager(new LinearLayoutManager(this));
+
+        }
+    }
+
+    private void updateData(){
+        ((ContactsAdapter)mcontactRecycleView.getAdapter()).setContactList(Contact.listAll(Contact.class));
+        mcontactRecycleView.getAdapter().notifyDataSetChanged();
+    }
     public void bindUI(){
         mcontinuarButton = findViewById(R.id.continuarButton);
         mcontactsButton = findViewById(R.id.contactsButton);
+        mcontactRecycleView = findViewById(R.id.contactsRecycleView);
     }
     public void goToContacts(){
         startActivityForResult(new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI), REQUEST_CODE_PICK_CONTACTS);
+
     }
     public void goToMain(){
+        Contact.deleteAll(Contact.class);
         Intent intent = new Intent(AddContactActivity.this, MainActivity.class)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
